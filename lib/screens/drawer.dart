@@ -22,7 +22,7 @@ class MyDrawer extends StatelessWidget {
               accountName: Text("Rao Faheem", style: TextStyle(color: Colors.white),),
               accountEmail: Text("faheemrao449@gmail.com", style: TextStyle(color: Colors.white),),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/rao.jpg"),
+                backgroundImage: AssetImage("assets/images/log.png"),
               ),
             ),
           ),

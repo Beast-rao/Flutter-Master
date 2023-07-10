@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_master/screens/home.dart';
 import 'package:flutter_master/screens/login.dart';
 import 'package:flutter_master/untils/routes.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_master/untils/theme.dart';
 
 
 
@@ -20,11 +20,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Practice App',
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
-        fontFamily:GoogleFonts.lato().fontFamily,
-      ),
-      darkTheme: ThemeData(brightness: Brightness.light),
+      theme: MyTheme.lTheme(context),
+      darkTheme: MyTheme.DTheme(context),
       initialRoute: MyRoutees.homeroute,
       routes: {
         "/":(context)=> LoginPage(),
