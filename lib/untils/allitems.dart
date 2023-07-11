@@ -15,7 +15,7 @@ class AllItems extends StatelessWidget {
           children: [
             ListTile(
               leading: Container(
-                  width: 70, height: 200, child: Image.network(item.ImageUrl)),
+                  width: 70, height: 200, child: Image.network(item.image)),
               title: Text(item.name),
               subtitle: Text(item.desc),
               trailing: Text("\$${item.price}",
