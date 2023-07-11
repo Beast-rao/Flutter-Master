@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_master/screens/home.dart';
+import 'package:flutter_master/screens/Vxhome.dart';
+// import 'package:flutter_master/screens/home.dart';
 import 'package:flutter_master/screens/login.dart';
 import 'package:flutter_master/untils/routes.dart';
 import 'package:flutter_master/untils/theme.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       initialRoute: MyRoutees.homeroute,
       routes: {
         "/":(context)=> LoginPage(),
-        MyRoutees.homeroute:(context)=> HomePage(),
+        MyRoutees.homeroute:(context)=> VxHomePage(),
         MyRoutees.loginroute:(context)=> LoginPage(),
 
 

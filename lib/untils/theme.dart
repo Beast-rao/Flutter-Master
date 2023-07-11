@@ -14,4 +14,6 @@ class MyTheme{
     ),);
   static ThemeData DTheme(BuildContext context)  =>
       ThemeData(brightness: Brightness.light);
+  static Color creamcolor=Color(0xfff5f5f5);
+  static Color darkbluesh=Color(0xff403b58);
   }
