@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_master/App%20data/products.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 
 class GriItems extends StatelessWidget {
   final Item item;
@@ -9,28 +10,36 @@ class GriItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      clipBehavior: Clip.antiAlias,
+        clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: GridTile(
           header: Container(
-            height: 16,
-              decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                color: Colors.blueAccent,
-                  // borderRadius: BorderRadius.circular(10)
-              ),
-              child: Text(item.name, style: TextStyle(color: Colors.white))),
-          child: Image.network(item.ImageUrl),
-          footer: Container(
-            height: 16,
-
+            height: 30,
             decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                color: Colors.blueAccent,
-                // borderRadius: BorderRadius.circular(10)
+              shape: BoxShape.rectangle,
+              color: Colors.blueAccent,
+              // borderRadius: BorderRadius.circular(10)
             ),
-            child: Text("\$"+
-              item.price.toString(),
+            child: Text(
+              item.name,
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          child: Image.network(item.image),
+          // CachedNetworkImage(
+          //   imageUrl: item.Image,
+          //   placeholder: (context, url) => CircularProgressIndicator(),
+          //   errorWidget: (context, url, error) => Icon(Icons.error),
+          // ),
+          footer: Container(
+            height: 30,
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              color: Colors.blueAccent,
+              // borderRadius: BorderRadius.circular(10)
+            ),
+            child: Text(
+              "\$" + item.price.toString(),
               style: TextStyle(color: Colors.white),
             ),
           ),

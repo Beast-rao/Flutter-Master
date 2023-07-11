@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
         child: (ProductsModel.goods.isNotEmpty)
             ? GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                    crossAxisCount: 2,mainAxisSpacing: 16 ,
+                crossAxisSpacing: 16),
                 itemBuilder: (context, index) {
                   return GriItems(item:ProductsModel.goods[index] );
                 },

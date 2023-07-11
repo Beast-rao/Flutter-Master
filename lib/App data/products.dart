@@ -9,7 +9,7 @@ class Item {
   final String desc;
   final int price;
   final String color;
-  final String ImageUrl;
+  final String image;
 
   Item(
       {required this.id,
@@ -17,7 +17,7 @@ class Item {
       required this.desc,
       required this.price,
       required this.color,
-      required this.ImageUrl});
+      required this.image});
 
 //we are using below to map json file data
   factory Item.fromMap(Map<String, dynamic> map) {
@@ -27,7 +27,7 @@ class Item {
       desc: map["desc"] as String? ?? "",
       price: map["price"] as int? ?? 0,
       color: map["color"] as String? ?? "",
-      ImageUrl: map["ImageUrl"] as String? ?? "",
+      image: map["image"] as String? ?? "",
     );
   }
 //we ae using below to convert back mapping
@@ -37,6 +37,6 @@ class Item {
         "desc": desc,
         "price": price,
         "color": color,
-        "ImageUrl": ImageUrl,
+        "image": image,
       };
 }
