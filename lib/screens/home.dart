@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter_master/App%20data/products.dart';
 import 'package:flutter_master/screens/drawer.dart';
-import 'package:flutter_master/untils/allitems.dart';
+// import 'package:flutter_master/untils/allitems.dart';
+
+import '../untils/griditems.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -40,15 +42,15 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: (ProductsModel.goods.isNotEmpty)
-            ? ListView.builder(
-                itemCount: ProductsModel.goods.length,
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
                 itemBuilder: (context, index) {
-                  return AllItems(
-                    item: ProductsModel.goods[index],
-                  );
+                  return GriItems(item:ProductsModel.goods[index] );
                 },
+                itemCount: ProductsModel.goods.length,
               )
-        //to show circualar wait
+            //to show circualar wait
             : Center(
                 child: CircularProgressIndicator(
                     color: Colors.blueAccent, backgroundColor: Colors.black26),
