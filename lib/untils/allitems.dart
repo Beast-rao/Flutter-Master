@@ -4,9 +4,7 @@ import 'package:flutter_master/App%20data/products.dart';
 class AllItems extends StatelessWidget {
   final Item item;
 
-  const AllItems({Key? key, required this.item})
-      : assert(item != null, 'Item must not be null.'),
-        super(key: key);
+  const AllItems({required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +14,13 @@ class AllItems extends StatelessWidget {
         child: ListView(
           children: [
             ListTile(
-              leading: Image.asset(item.ImageUrl),
+              leading: Container(
+                  width: 70, height: 200, child: Image.network(item.ImageUrl)),
               title: Text(item.name),
               subtitle: Text(item.desc),
               trailing: Text("\$${item.price}",
                   textScaleFactor: 1.3,
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
           ],
         ),
