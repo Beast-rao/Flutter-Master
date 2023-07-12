@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter_master/App%20data/products.dart';
+import 'package:flutter_master/untils/routes.dart';
 import 'package:flutter_master/untils/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -41,6 +43,13 @@ class _VxHomePageState extends State<VxHomePage> {
     // final dummydata = List.generate(100, (index) => ProductsModel.goods[0]);
     return Scaffold(
         backgroundColor: MyTheme.creamcolor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            Navigator.pushNamed(context, MyRoutees.cartroute);
+          },
+            backgroundColor: MyTheme.darkbluesh,
+          child: Icon(CupertinoIcons.cart,color: Colors.white,)
+        ),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,

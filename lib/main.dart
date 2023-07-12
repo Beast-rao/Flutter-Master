@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_master/screens/Vxhome.dart';
+import 'package:flutter_master/screens/cart.dart';
 // import 'package:flutter_master/screens/home.dart';
 import 'package:flutter_master/screens/login.dart';
 import 'package:flutter_master/untils/routes.dart';
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
         "/":(context)=> LoginPage(),
         MyRoutees.homeroute:(context)=> VxHomePage(),
         MyRoutees.loginroute:(context)=> LoginPage(),
+        MyRoutees.cartroute:(context)=> CartPage(),
+
 
 
 

@@ -12,7 +12,7 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Colors.transparent,),
       bottomNavigationBar: ButtonBar(
         alignment: MainAxisAlignment.spaceBetween,
         buttonPadding: EdgeInsets.zero,
@@ -28,8 +28,8 @@ class HomeDetailsPage extends StatelessWidget {
                 const StadiumBorder(),
               ),
             ),
-            child: "Buy".text.lg.bold.make(),
-          ).wh(100, 60)
+            child: "Add to Cart".text.lg.bold.white.make(),
+          ).wh(150, 50)
         ],
       ).p(32),
       backgroundColor: MyTheme.creamcolor,
@@ -54,8 +54,13 @@ class HomeDetailsPage extends StatelessWidget {
                     children: [
                       item.name.text.xl4.color(MyTheme.darkbluesh).bold.make(),
                       item.desc.text.xl.textStyle(context.captionStyle).make(),
+                      "They come in use for communicating through voice, messages, and mails. We can also surf the internet using a phone. Most importantly, we also click photos and record videos through our mobile's camera."
+                          .text
+                          .textStyle(context.captionStyle)
+                          .make()
+                          .p16()
                     ],
-                  ).py64(),
+                  ).py32(),
                 ),
               ),
             ),
