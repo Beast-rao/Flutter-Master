@@ -5,7 +5,7 @@ class MyTheme{
   static ThemeData lTheme(BuildContext context)  =>
     ThemeData(
         primarySwatch: Colors.lightBlue,
-        fontFamily:GoogleFonts.lato().fontFamily,
+        fontFamily:GoogleFonts.poppins().fontFamily,
     iconTheme: IconThemeData(color: Colors.black),
     appBarTheme: AppBarTheme(
     iconTheme: IconThemeData(color: Colors.black),
