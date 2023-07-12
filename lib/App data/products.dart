@@ -3,9 +3,9 @@ class ProductsModel {
   ];
 
   //Get by ID
-  static Item getById(int id)=>goods.firstWhere((element) =>element.id==id,orElse: null);
+   Item getById(int id)=>goods.firstWhere((element) =>element.id==id,orElse: null);
   //Gey by Position
-  static Item getByPos(int pos)=>goods[pos];
+  Item getByPos(int pos)=>goods[pos];
 }
 
 class Item {

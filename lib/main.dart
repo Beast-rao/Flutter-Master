@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       darkTheme: MyTheme.dTheme(context),
       initialRoute: MyRoutees.homeroute,
       routes: {
-        "/":(context)=> LoginPage(),
+        "/":(context)=> VxHomePage(),
         MyRoutees.homeroute:(context)=> VxHomePage(),
         MyRoutees.loginroute:(context)=> LoginPage(),
         MyRoutees.cartroute:(context)=> CartPage(),
