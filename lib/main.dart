@@ -22,8 +22,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Practice App',
       themeMode: ThemeMode.light,
+
       theme: MyTheme.lTheme(context),
-      darkTheme: MyTheme.DTheme(context),
+      darkTheme: MyTheme.dTheme(context),
       initialRoute: MyRoutees.homeroute,
       routes: {
         "/":(context)=> LoginPage(),
