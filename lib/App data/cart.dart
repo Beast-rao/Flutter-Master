@@ -1,6 +1,12 @@
 import 'package:flutter_master/App%20data/products.dart';
 
 class CartModel {
+  static final cartModel = CartModel._internal();
+
+  CartModel._internal();
+
+  factory CartModel() => cartModel;
+
 
   late ProductsModel _cartlog;
 
@@ -18,7 +24,9 @@ class CartModel {
   List<Item> get items => _itemIds.map((id) => _cartlog.getById(id)).toList();
 
 //get total price
-  num get totalPrice=>items.fold(0, (total, current) => total+current.price);
+  num get totalPrice =>
+      items.fold(0, (total, current) => total + current.price);
+
   //add item
   void add(Item item) {
     _itemIds.add(item.id);
@@ -29,3 +37,4 @@ class CartModel {
     _itemIds.remove(item.id);
   }
 }
+

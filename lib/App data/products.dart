@@ -1,11 +1,17 @@
 class ProductsModel {
-  static List<Item> goods = [
-  ];
+  static final productModel = ProductsModel._internal();
+
+  ProductsModel._internal();
+
+  factory ProductsModel() => productModel;
+  static List<Item> goods = [];
 
   //Get by ID
-   Item getById(int id)=>goods.firstWhere((element) =>element.id==id,orElse: null);
+  Item getById(int id) =>
+      goods.firstWhere((element) => element.id == id, );
+
   //Gey by Position
-  Item getByPos(int pos)=>goods[pos];
+  Item getByPos(int pos) => goods[pos];
 }
 
 class Item {
@@ -35,6 +41,7 @@ class Item {
       image: map["image"] as String? ?? "",
     );
   }
+
 //we ae using below to convert back mapping
   toMap() => {
         "id": id,
