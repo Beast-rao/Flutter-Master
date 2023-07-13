@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_master/App%20data/cart.dart';
+import 'package:flutter_master/store%20management/store.dart';
 import 'package:flutter_master/untils/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -24,11 +25,22 @@ class CartPage extends StatelessWidget {
 class CartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    final CartModel _cart = (VxState.store as MyStore).cart;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        "\$${_cart.totalPrice}".text.xl5.color(MyTheme.darkbluesh).make(),
+        // we can also use Vx Builder if we need any notification then use VxConsumer otherwise VxConsumer can be used
+        VxConsumer(
+          notifications: {},
+          mutations: {RemoveMutation},
+          builder: (context, _, __) { // Include the third parameter __ for VxStatus?
+            return "\$${_cart.totalPrice}"
+                .text
+                .xl5
+                .color(MyTheme.darkbluesh)
+                .make();
+          },
+        ),
         20.widthBox,
         ElevatedButton(
           onPressed: () {
@@ -52,10 +64,10 @@ class CartButton extends StatelessWidget {
 }
 
 class CartItems extends StatelessWidget {
-  final _cart = CartModel();
-
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [RemoveMutation]);
+    final CartModel _cart = (VxState.store as MyStore).cart;
     return _cart.items.isEmpty
         ? "Nothing to show here".text.xl4.make().centered()
         : ListView.builder(
@@ -64,10 +76,8 @@ class CartItems extends StatelessWidget {
               leading: Icon(Icons.done),
               trailing: IconButton(
                 icon: Icon(Icons.remove_circle_outline),
-                onPressed: () {
-                  _cart.remove(_cart.items[index]);
-                  // setState(() {});
-                },
+                onPressed: () => RemoveMutation(_cart.items[index]),
+                // setState(() {});
               ),
               title: _cart.items[index].name.text.make(),
             ),
