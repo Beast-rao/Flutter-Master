@@ -60,7 +60,7 @@ class _VxHomePageState extends State<VxHomePage> {
                 if (ProductsModel.goods.isNotEmpty)
                   CatalogList().expand()
                 else
-                     CircularProgressIndicator().expand().centered(),
+                     CircularProgressIndicator().centered().expand(),
 
               ],
             ),

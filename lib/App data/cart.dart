@@ -1,12 +1,12 @@
 import 'package:flutter_master/App%20data/products.dart';
 
 class CartModel {
-  static final cartModel = CartModel._internal();
-
-  CartModel._internal();
-
-  factory CartModel() => cartModel;
-
+  //singolton class
+  // static final cartModel = CartModel._internal();
+  //
+  // CartModel._internal();
+  //
+  // factory CartModel() => cartModel;
 
   late ProductsModel _cartlog;
 
@@ -37,4 +37,3 @@ class CartModel {
     _itemIds.remove(item.id);
   }
 }
-

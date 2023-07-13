@@ -1,9 +1,9 @@
 class ProductsModel {
-  static final productModel = ProductsModel._internal();
+  //Singolton class
+  // static final productModel = ProductsModel._internal();
+  // ProductsModel._internal();
+  // factory ProductsModel() => productModel;
 
-  ProductsModel._internal();
-
-  factory ProductsModel() => productModel;
   static List<Item> goods = [];
 
   //Get by ID

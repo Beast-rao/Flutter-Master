@@ -9,7 +9,6 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: "Cart".text.make().centered(),
@@ -23,10 +22,9 @@ class CartPage extends StatelessWidget {
 }
 
 class CartButton extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    final _cart=CartModel();
+    final _cart = CartModel();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -34,14 +32,16 @@ class CartButton extends StatelessWidget {
         20.widthBox,
         ElevatedButton(
           onPressed: () {
-
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: "Buying is not Supported yet".text.make(),
               ),
             );
           },
-          child: Text("Buy",style: TextStyle(color: Colors.white,fontSize: 20),),
+          child: Text(
+            "Buy",
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.lightBlue),
           ),
@@ -51,30 +51,26 @@ class CartButton extends StatelessWidget {
   }
 }
 
-class CartItems extends StatefulWidget {
-  const CartItems({super.key});
+class CartItems extends StatelessWidget {
+  final _cart = CartModel();
 
-  @override
-  State<CartItems> createState() => _CartItemsState();
-}
-
-class _CartItemsState extends State<CartItems> {
-  final _cart=CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _cart.items.length,
-      itemBuilder: (context, index) => ListTile(
-        leading: Icon(Icons.done),
-        trailing: IconButton(
-          icon: Icon(Icons.remove_circle_outline),
-          onPressed: () {
-          },
-        ),
-        title: _cart.items[index].name.text.make(),
-      ),
-    );
+    return _cart.items.isEmpty
+        ? "Nothing to show here".text.xl4.make().centered()
+        : ListView.builder(
+            itemCount: _cart.items.length,
+            itemBuilder: (context, index) => ListTile(
+              leading: Icon(Icons.done),
+              trailing: IconButton(
+                icon: Icon(Icons.remove_circle_outline),
+                onPressed: () {
+                  _cart.remove(_cart.items[index]);
+                  // setState(() {});
+                },
+              ),
+              title: _cart.items[index].name.text.make(),
+            ),
+          );
   }
 }
-
-
