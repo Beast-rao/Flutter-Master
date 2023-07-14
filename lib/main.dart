@@ -7,10 +7,12 @@ import 'package:flutter_master/store%20management/store.dart';
 import 'package:flutter_master/untils/routes.dart';
 import 'package:flutter_master/untils/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 
 void main() {
-  runApp(VxState(child:MyApp(),store: MyStore(),));
+  runApp(VxState(child:MyApp(),store: MyStore(),),);
+  setPathUrlStrategy();
 }
 
 class MyApp extends StatelessWidget {

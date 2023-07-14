@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_master/untils/routes.dart';
+import 'package:flutter_master/untils/theme.dart';
+import 'package:velocity_x/velocity_x.dart';
 // import 'package:flutter_master/utils/routes.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,94 +29,98 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              Image.asset(
-                "assets/images/log.png",
-                scale: 2.5,
-                fit: BoxFit.contain,
-              ),
-              Text(
-                "Welcome $name",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: MyTheme.creamcolor,
+        body: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                30.heightBox,
+                Image.asset(
+                  "assets/images/log.png",
+                  scale: 2.5,
+                  fit: BoxFit.contain,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: "Username",
-                        labelText: "Name",
-                      ),
-                      validator: (value) {
-                        if (value!= null && value.isEmpty) {
-                          return "Username can't be empty";
-                        }
-                        return null;
-                      },
-                      onChanged: (value) {
-                        setState(() {
-                          name = value;
-                        });
-                      },
-                    ),
-                    SizedBox(height: 10),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: "Password",
-                        labelText: "Password",
-                      ),
-                      validator: (value) {
-                        if (value!= null && value.isEmpty) {
-                          return "Password can't be empty";
-                        } else if (value!.length < 6) {
-                          return "Password must contain at least 6 characters";
-                        }
-                        return null;
-                      },
-                      obscureText: true,
-                    ),
-                  ],
-                ),
-              ),
-              InkWell(
-                onTap: () => moveToHome(context),
-                child: AnimatedContainer(
-                  duration: Duration(seconds: 1),
-                  width: thisButton ? 50 : 100,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: thisButton
-                        ? BorderRadius.circular(50)
-                        : BorderRadius.circular(8),
+                30.heightBox,
+                Text(
+                  "Welcome $name :)",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: MyTheme.darkbluesh,
                   ),
-                  child: thisButton
-                      ? Icon(
-                    Icons.done,
-                    color: Colors.white,
-                  )
-                      : Text(
-                    "Login",
-                    style: TextStyle(
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(
+                          hintText: "Username",
+                          labelText: "Name",
+                        ),
+                        validator: (value) {
+                          if (value!= null && value.isEmpty) {
+                            return "Username can't be empty";
+                          }
+                          return null;
+                        },
+                        onChanged: (value) {
+                          setState(() {
+                            name = value;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          hintText: "Password",
+                          labelText: "Password",
+                        ),
+                        validator: (value) {
+                          if (value!= null && value.isEmpty) {
+                            return "Password can't be empty";
+                          } else if (value!.length < 6) {
+                            return "Password must contain at least 6 characters";
+                          }
+                          return null;
+                        },
+                        obscureText: true,
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () => moveToHome(context),
+                  child: AnimatedContainer(
+                    duration: Duration(seconds: 1),
+                    width: thisButton ? 50 : 100,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: MyTheme.darkbluesh,
+                      borderRadius: thisButton
+                          ? BorderRadius.circular(50)
+                          : BorderRadius.circular(8),
+                    ),
+                    child: thisButton
+                        ? Icon(
+                      Icons.done,
                       color: Colors.white,
-                      fontSize: 18,
+                    )
+                        : Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
                     ),
+                    alignment: Alignment.center,
                   ),
-                  alignment: Alignment.center,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

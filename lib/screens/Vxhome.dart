@@ -51,41 +51,43 @@ class _VxHomePageState extends State<VxHomePage> {
   Widget build(BuildContext context) {
     // final dummydata = List.generate(100, (index) => ProductsModel.goods[0]);
     final _cart = (VxState.store as MyStore).cart;
-    return Scaffold(
-        backgroundColor: MyTheme.creamcolor,
-        floatingActionButton: VxBuilder(
-          mutations: {AddMutation, RemoveMutation},
-          builder: (ctx, _, __) => FloatingActionButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, MyRoutees.cartroute);
-                  },
-                  backgroundColor: MyTheme.darkbluesh,
-                  child: Icon(
-                    CupertinoIcons.cart,
-                    color: Colors.white,
-                  ))
-              .badge(
-                  size: 20,
-                  color: Vx.red500,
-                  count: _cart.items.length,
-                  textStyle: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold)),
-        ),
-        body: SafeArea(
-          child: Container(
-            padding: Vx.m32,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CatalogHeader().pOnly(bottom: 25),
-                if (ProductsModel.goods.isNotEmpty)
-                  CatalogList().expand()
-                else
-                  CircularProgressIndicator().centered().expand(),
-              ],
-            ),
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: MyTheme.creamcolor,
+          floatingActionButton: VxBuilder(
+            mutations: {AddMutation, RemoveMutation},
+            builder: (ctx, _, __) => FloatingActionButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, MyRoutees.cartroute);
+                    },
+                    backgroundColor: MyTheme.darkbluesh,
+                    child: Icon(
+                      CupertinoIcons.cart,
+                      color: Colors.white,
+                    ))
+                .badge(
+                    size: 20,
+                    color: Vx.red500,
+                    count: _cart.items.length,
+                    textStyle: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold)),
           ),
-        ));
+          body: SafeArea(
+            child: Container(
+              padding: Vx.m32,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CatalogHeader().pOnly(bottom: 25),
+                  if (ProductsModel.goods.isNotEmpty)
+                    CatalogList().expand()
+                  else
+                    CircularProgressIndicator().centered().expand(),
+                ],
+              ),
+            ),
+          )),
+    );
   }
 }
 
